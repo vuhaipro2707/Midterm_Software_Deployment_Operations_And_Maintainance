@@ -44,8 +44,8 @@ cd Midterm_Software_Deployment_Operations_And_Maintainance
 Use the setup.sh script to automatically install Node.js, MongoDB, Nginx, Docker, and configure SSL:
 
 ```
-chmod +x setup.sh  
-sudo ./setup.sh
+chmod +x scripts/setup.sh
+sudo ./scripts/setup.sh
 ```
 
 **Information required when running the script:**
