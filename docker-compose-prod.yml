@@ -1,0 +1,35 @@
+services:
+  app:
+    image: vuhaipro2707/midterm-app:latest
+    
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - MONGO_URI=mongodb://mongo:27017/products_db
+      - NODE_ENV=production
+    depends_on:
+      - mongo
+    volumes:
+      - ./public/uploads:/app/public/uploads
+    restart: unless-stopped
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:7.0
+    container_name: mongo_db
+    environment:
+      - MONGO_INITDB_DATABASE=products_db
+    volumes:
+      - mongo_data:/data/db
+    restart: unless-stopped
+    networks:
+      - app-network
+
+volumes:
+  mongo_data:
+
+networks:
+  app-network:
+    driver: bridge
