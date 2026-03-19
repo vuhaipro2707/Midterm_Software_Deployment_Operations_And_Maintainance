@@ -28,6 +28,39 @@ Before running the deployment script, you **must** have a domain name ready:
   - Configure the server_name in Nginx.
   - Register a free SSL certificate from Let's Encrypt via Certbot. If the domain is not pointing to the server IP, the SSL registration will fail.
 
+## Local Installation & Development
+
+Requirement: Node.js 16+ (or compatible version) and `npm`.
+
+Environment File: The application uses a .env file for configuration. A template is provided in the repository (.env.example):
+
+```
+PORT=3000
+MONGO_URI=mongodb://localhost:27017/products_db
+```
+
+### 1\. Install Dependencies
+
+Navigate to the project directory and install the required packages:
+
+```
+npm install
+```
+
+### 2\. Start the Server
+
+Production Mode:
+
+```
+npm start
+```
+
+Development Mode (with auto-reload):
+
+```
+npm run dev
+```
+
 ## Installation & Deployment Guide
 
 ### 1\. Clone the Repository
