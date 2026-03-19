@@ -32,6 +32,14 @@ Before running the deployment script, you **must** have a domain name ready:
 
 Requirement: Node.js 16+ (or compatible version) and `npm`.
 
+## Environment Variables
+
+The application uses the following environment variables:
+
+**PORT**: Application port (default: 3000)
+
+**MONGO_URI**: MongoDB connection string
+
 Environment File: The application uses a .env file for configuration. A template is provided in the repository (.env.example):
 
 ```
@@ -65,7 +73,9 @@ npm run dev
 
 After starting the server, open your browser and navigate to:
 
+```
 http://localhost:3000/
+```
 
 The user interface will display a list of products and provide functionalities to add, edit, and delete products.
 
@@ -75,10 +85,25 @@ The user interface will display a list of products and provide functionalities t
 
 First, clone the repository to your server:
 
+#### Using HTTPS (Recommended)
+
+```bash
+git clone https://github.com/vuhaipro2707/Midterm_Software_Deployment_Operations_And_Maintainance.git
 ```
-git clone <git@github.com>:vuhaipro2707/Midterm_Software_Deployment_Operations_And_Maintainance.git
+
+#### Using SSH (Requires SSH key setup)
+
+```bash
+git clone git@github.com:vuhaipro2707/Midterm_Software_Deployment_Operations_And_Maintainance.git
+```
+
+Then navigate into the project directory:
+
+```bash
 cd Midterm_Software_Deployment_Operations_And_Maintainance
 ```
+
+> Note: SSH requires a configured SSH key on your machine.
 
 ### 2\. Environment Setup
 
@@ -88,6 +113,8 @@ Use the setup.sh script to automatically install Node.js, MongoDB, Nginx, Docker
 chmod +x scripts/setup.sh
 sudo ./scripts/setup.sh
 ```
+
+The setup.sh script automates the installation of required dependencies such as Node.js, MongoDB, Nginx, and Docker. It also configures the system environment and prepares the server for deployment, ensuring consistency and reducing manual setup effort.
 
 **Information required when running the script:**
 
