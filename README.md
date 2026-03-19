@@ -61,6 +61,14 @@ Development Mode (with auto-reload):
 npm run dev
 ```
 
+### 3\. Access the Application
+
+After starting the server, open your browser and navigate to:
+
+http://localhost:3000/
+
+The user interface will display a list of products and provide functionalities to add, edit, and delete products.
+
 ## Installation & Deployment Guide
 
 ### 1\. Clone the Repository
@@ -68,7 +76,7 @@ npm run dev
 First, clone the repository to your server:
 
 ```
-git clone <git@github.com>:vuhaipro2707/Midterm_Software_Deployment_Operations_And_Maintainance.git  
+git clone <git@github.com>:vuhaipro2707/Midterm_Software_Deployment_Operations_And_Maintainance.git
 cd Midterm_Software_Deployment_Operations_And_Maintainance
 ```
 
@@ -93,11 +101,11 @@ sudo ./scripts/setup.sh
 This method runs the app directly on the host OS.
 
 ```
-# Install dependencies  
-npm install  
-# Start the application with PM2  
-sudo pm2 start main.js --name "product-app"  
-# Monitor status  
+# Install dependencies
+npm install
+# Start the application with PM2
+sudo pm2 start main.js --name "product-app"
+# Monitor status
 sudo pm2 status
 ```
 
@@ -106,9 +114,9 @@ sudo pm2 status
 This method isolates the application and database into containers.
 
 ```
-# Start services (App + MongoDB) in background mode  
-sudo docker-compose -f docker-compose-prod.yml up -d  
-# Check running containers  
+# Start services (App + MongoDB) in background mode
+sudo docker-compose -f docker-compose-prod.yml up -d
+# Check running containers
 sudo docker ps
 ```
 
