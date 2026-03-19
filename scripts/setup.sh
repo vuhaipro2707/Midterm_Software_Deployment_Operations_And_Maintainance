@@ -55,9 +55,24 @@ sudo certbot --nginx -d ${DOMAIN} --non-interactive --agree-tos -m ${EMAIL}
 # 7. Cài đặt Docker và Docker Compose
 sudo apt install docker.io docker-compose -y
 
+# 8. Thiết lập tự động khởi động cho các dịch vụ
+echo "--- Đang thiết lập tự động bật cho Nginx ---"
+sudo systemctl enable nginx
+sudo systemctl start nginx
+
+echo "--- Đang thiết lập tự động bật cho PM2 ---"
+PM2_STARTUP=$(pm2 startup | grep "sudo env" | sed 's/^[[:space:]]*//')
+eval "$PM2_STARTUP"
+pm2 save
+
+echo "--- Đang thiết lập tự động bật cho Docker ---"
+sudo systemctl enable docker.service
+sudo systemctl enable containerd.service
+
 # Thông báo kết quả
 echo "---------------------------------------------------"
 echo "Setup hoàn tất! MongoDB và Node.js đã sẵn sàng."
 echo "MongoDB status: $(systemctl is-active mongod)"
 echo "Nginx đã được cấu hình với SSL cho domain: ${DOMAIN}"
+echo "Các dịch vụ đã được cấu hình tự động khởi động."
 echo "---------------------------------------------------"
