@@ -20,7 +20,7 @@ apt-get install -y gnupg curl git
 # 2. Cài đặt Node.js (phiên bản LTS)
 
 curl -fsSL https://deb.nodesource.com/setup_lts.x | -E bash -
-apt-get install -y nodejs
+apt-get install -y nodejs npm
 npm install -g pm2
 
 # 3. Cài đặt MongoDB
@@ -38,12 +38,12 @@ systemctl enable mongod
 
 # 4. Tạo thư mục cần thiết
 
-mkdir -p ../logs ../uploads ../data
-chmod -R 755 ../logs ../uploads ../data
+mkdir -p ./logs ./uploads ./data
+chmod -R 755 ./logs ./uploads ./data
 
 # 5. Nginx setup
 apt-get install -y nginx certbot python3-certbot-nginx
-cp ../nginx/myapp.conf /etc/nginx/sites-available/myapp
+cp ./nginx/myapp.conf /etc/nginx/sites-available/myapp
 sed -i "s|^\([[:space:]]*\)server_name .*;|\1server_name $DOMAIN;|g" /etc/nginx/sites-available/myapp
 ln -sf /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled/
 rm -f /etc/nginx/sites-enabled/default
